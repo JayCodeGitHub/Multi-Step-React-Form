@@ -74,10 +74,7 @@ function Form() {
     }
     setStep(5);
     try {
-      const response = await axios.post(
-        "https://multi-step-form.pl/submit",
-        form
-      );
+      const response = await axios.post("/api/submit", form);
       console.log(response);
     } catch (error: any) {
       console.error("Error:", error);
