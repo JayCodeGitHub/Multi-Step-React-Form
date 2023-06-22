@@ -1,7 +1,26 @@
-export default function Alert() {
+interface AlertProps {
+  message: string;
+}
+
+export default function Alert({ message }: AlertProps) {
   return (
-    <span>
-      <h1>Alert</h1>
-    </span>
+    <aside role="alert">
+      <span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </span>
+      <p>{message}</p>
+    </aside>
   );
 }

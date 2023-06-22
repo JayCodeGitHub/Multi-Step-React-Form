@@ -10,6 +10,6 @@ export default function handler(
   res: NextApiResponse<Data>
 ) {
     if(req.method == "POST") {
-        res.status(400).send(req.body);
+        res.status(200).send(req.body);
     } 
 }

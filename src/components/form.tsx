@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useMultiStepForm } from "../hooks/useMultiStepForm";
 import { useError } from "../hooks/useError";
+import { useAlert } from "@/hooks/useAlert";
 import Input from "./input";
 import Step from "./step";
 import axios from "axios";
@@ -11,6 +12,8 @@ export default function Form() {
 
   const { form, setForm, updateField, initialForm } = useMultiStepForm();
   const { error, setError, initialError } = useError();
+
+  const { dispatchAlert } = useAlert();
 
   const stepBack = () => {
     setStep(step < 2 ? step : step - 1);
@@ -75,12 +78,13 @@ export default function Form() {
     setStep(5);
     try {
       const response = await axios.post("/api/submit", form);
-      console.log(response);
+      dispatchAlert(`Form sent successfully`);
+      setForm(initialForm);
+      setStep(1);
     } catch (error: any) {
       console.error("Error:", error);
+      dispatchAlert(`Oops something went wrong`);
     }
-    setForm(initialForm);
-    setStep(1);
   };
 
   return (
