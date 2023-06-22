@@ -6,7 +6,7 @@ interface StepProps {
   currentStep: number;
 }
 
-function Step({ step, currentStep }: StepProps) {
+export default function Step({ step, currentStep }: StepProps) {
   let status =
     currentStep === step
       ? "active"
@@ -70,5 +70,3 @@ function Step({ step, currentStep }: StepProps) {
     </motion.div>
   );
 }
-
-export default Step;

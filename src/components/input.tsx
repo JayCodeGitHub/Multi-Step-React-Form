@@ -9,7 +9,7 @@ interface InputProps {
   number?: boolean;
 }
 
-function Input({
+export default function Input({
   error,
   name,
   value,
@@ -50,5 +50,3 @@ function Input({
     </>
   );
 }
-
-export default Input;

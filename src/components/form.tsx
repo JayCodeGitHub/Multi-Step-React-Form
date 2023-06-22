@@ -6,7 +6,7 @@ import Input from "./input";
 import Step from "./step";
 import axios from "axios";
 
-function Form() {
+export default function Form() {
   let [step, setStep] = useState(1);
 
   const { form, setForm, updateField, initialForm } = useMultiStepForm();
@@ -205,5 +205,3 @@ function Form() {
     </form>
   );
 }
-
-export default Form;

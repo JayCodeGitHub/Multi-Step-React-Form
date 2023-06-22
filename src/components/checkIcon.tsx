@@ -1,7 +1,7 @@
 import { ComponentProps } from "react";
 import { motion } from "framer-motion";
 
-function CheckIcon(props: ComponentProps<"svg">) {
+export default function CheckIcon(props: ComponentProps<"svg">) {
   return (
     <svg
       {...props}
@@ -26,5 +26,3 @@ function CheckIcon(props: ComponentProps<"svg">) {
     </svg>
   );
 }
-
-export default CheckIcon;
