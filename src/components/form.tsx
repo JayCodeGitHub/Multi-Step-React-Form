@@ -73,13 +73,19 @@ export default function Form() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
     if (step === 5) {
       return null;
     }
     setStep(5);
+    setLoading(true);
     try {
-      const response = await axios.post("/api/submit", form);
+      const [res] = await Promise.allSettled([
+        axios.post("/api/submit", form),
+        new Promise((resolve) => setTimeout(resolve, 1000)),
+      ]);
+      if (res.status !== "fulfilled") {
+        throw res.reason;
+      }
       dispatchAlert(`Form sent successfully`);
       setStatus(true);
       setForm(initialForm);
