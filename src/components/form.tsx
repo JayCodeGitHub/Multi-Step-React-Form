@@ -83,9 +83,7 @@ export default function Form() {
         axios.post("/api/submit", form),
         new Promise((resolve) => setTimeout(resolve, 1000)),
       ]);
-      if (res.status !== "fulfilled") {
-        throw res.reason;
-      }
+      if (res.status !== "fulfilled") throw res.reason;
       dispatchAlert(`Form sent successfully`);
       setStatus(true);
       setForm(initialForm);
