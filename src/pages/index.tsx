@@ -1,6 +1,6 @@
 import Form from "@/components/form";
 import Alert from "@/components/alert";
-import { useAlert } from "@/hooks/useAlert";
+import { useAlert } from "@/hooks";
 
 export default function Home() {
   const { alert } = useAlert();

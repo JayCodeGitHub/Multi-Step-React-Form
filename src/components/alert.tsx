@@ -1,4 +1,4 @@
-import { useAlert } from "@/hooks/useAlert";
+import { useAlert } from "@/hooks";
 import { motion } from "framer-motion";
 
 interface AlertProps {

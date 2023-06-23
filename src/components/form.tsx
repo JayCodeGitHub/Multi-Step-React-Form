@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { useMultiStepForm } from "../hooks/useMultiStepForm";
-import { useError } from "../hooks/useError";
-import { useAlert } from "@/hooks/useAlert";
+import { useAlert, useError, useMultiStepForm } from "@/hooks";
 import Input from "./input";
 import Step from "./step";
 import axios from "axios";
