@@ -13,7 +13,7 @@ export default function Form() {
   const { form, setForm, updateField, initialForm } = useMultiStepForm();
   const { error, setError, initialError } = useError();
 
-  const { dispatchAlert } = useAlert();
+  const { dispatchAlert, setStatus } = useAlert();
 
   const stepBack = () => {
     setStep(step < 2 ? step : step - 1);
@@ -79,10 +79,12 @@ export default function Form() {
     try {
       const response = await axios.post("/api/submit", form);
       dispatchAlert(`Form sent successfully`);
+      setStatus(true);
       setForm(initialForm);
       setStep(1);
     } catch (error: any) {
       console.error("Error:", error);
+      setStatus(false);
       dispatchAlert(`Oops something went wrong`);
     }
   };
